@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lattitude Stamina | Hinode</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #100e0d;
+    color: white;
+    transition: background .4s ease;
+}
+
+.font-elegant {
+    font-family: 'Playfair Display', serif;
+}
+
+/* VERSÃO 1 - VERMELHO E PRETO */
+
+.theme-red {
+    --primary: #df4035;
+    --secondary: #a61d20;
+    --background: #100e0d;
+    --section: #191412;
+    --accent: #c58b68;
+}
+
+/* VERSÃO 2 - PRETO E DOURADO */
+
+.theme-gold {
+    --primary: #e4bd73;
+    --secondary: #9c7139;
+    --background: #10100e;
+    --section: #191713;
+    --accent: #f3dba5;
+}
+
+/* VERSÃO 3 - VERMELHO E AZUL */
+
+.theme-blue {
+    --primary: #ed443b;
+    --secondary: #214c85;
+    --background: #0d1017;
+    --section: #141b25;
+    --accent: #70a8e7;
+}
+
+body {
+    background: var(--background);
+}
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            color-mix(in srgb, var(--primary) 20%, transparent),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            var(--background),
+            var(--section)
+        );
+}
+
+.section-bg {
+    background: var(--section);
+}
+
+.primary-text {
+    color: var(--primary);
+}
+
+.accent-text {
+    color: var(--accent);
+}
+
+.primary-button {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+    transition: .3s;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px
+        color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.glass {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.09);
+}
+
+.product-image {
+    transition: transform .4s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.03);
+}
+
+.theme-selector {
+    border: 1px solid rgba(255,255,255,.15);
+    transition: .3s;
+}
+
+.theme-selector.active {
+    border: 2px solid var(--primary);
+    background: rgba(255,255,255,.08);
+}
+
+.instagram-button {
+    background: linear-gradient(
+        45deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+    color: white;
+    transition: .3s;
+}
+
+.instagram-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(225, 50, 100, .25);
+}
+
+</style>
+
+</head>
+
+<body class="theme-red">
+
+<!-- SELETOR DE VERSÕES -->
+
+<section class="bg-black py-5 border-b border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <p class="text-center text-gray-400 text-xs uppercase tracking-widest mb-4">
+            Escolha o estilo do site
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3">
+
+            <button
+                onclick="changeTheme('red')"
+                id="btn-red"
+                class="theme-selector active px-5 py-3 rounded-full text-sm font-bold">
+
+                🔴 Vermelho e preto
+
+            </button>
+
+            <button
+                onclick="changeTheme('gold')"
+                id="btn-gold"
+                class="theme-selector px-5 py-3 rounded-full text-sm font-bold">
+
+                🟡 Preto e dourado
+
+            </button>
+
+            <button
+                onclick="changeTheme('blue')"
+                id="btn-blue"
+                class="theme-selector px-5 py-3 rounded-full text-sm font-bold">
+
+                🔵 Vermelho e azul
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HEADER -->
+
+<header class="border-b border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+        <a href="#" class="text-2xl font-extrabold tracking-[0.2em]">
+
+            <span class="primary-text">LAT</span>TITUDE
+
+        </a>
+
+        <a
+            href="https://www.instagram.com/lattitudestamina.perfume/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="instagram-button px-5 py-3 rounded-full text-xs sm:text-sm font-bold">
+
+            INSTAGRAM ↗
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+
+        <div>
+
+            <span class="primary-text uppercase tracking-[0.3em] text-xs font-bold">
+
+                Hinode · Lattitude
+
+            </span>
+
+            <h1 class="font-elegant text-5xl md:text-7xl leading-tight mt-6 mb-6">
+
+                Sua essência.
+                <span class="primary-text italic">
+                    Sua atitude.
+                </span>
+
+            </h1>
+
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+
+                Descubra a coleção Lattitude Hinode.
+                Fragrâncias marcantes para quem busca personalidade,
+                sofisticação e novas experiências.
+
+            </p>
+
+            <div class="mb-8">
+                <span class="text-gray-400 text-sm uppercase tracking-widest">Lattitude Stamina</span>
+                <p class="primary-text text-3xl sm:text-4xl font-extrabold mt-2">R$ 169,90</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+
+                <a
+                    href="#perfumes"
+                    class="primary-button text-center px-8 py-4 rounded-full font-bold">
+
+                    CONHECER PERFUMES
+
+                </a>
+
+                <a
+                    href="https://www.instagram.com/lattitudestamina.perfume/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="instagram-button text-center px-8 py-4 rounded-full font-bold">
+
+                    SEGUIR NO INSTAGRAM ↗
+
+                </a>
+
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-10 text-sm text-gray-400">
+
+                <span>✦ Personalidade</span>
+                <span>✦ Sofisticação</span>
+                <span>✦ Fragrâncias marcantes</span>
+
+            </div>
+
+        </div>
+
+        <!-- IMAGEM STAMINA -->
+
+        <div class="relative">
+
+            <div class="absolute inset-0 bg-red-700/20 blur-3xl rounded-full"></div>
+
+            <img
+                src="stamina.jfif"
+                alt="Perfume Lattitude Stamina Hinode"
+                class="relative w-full rounded-2xl shadow-2xl product-image">
+
+            <div class="absolute bottom-5 left-5 right-5 p-5 rounded-xl bg-black/75 backdrop-blur-md">
+
+                <span class="primary-text text-xs tracking-[0.3em] uppercase">
+
+                    Lattitude Stamina
+
+                </span>
+
+                <h2 class="font-elegant text-2xl mt-2">
+
+                    Vigor para superar obstáculos.
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BENEFÍCIOS -->
+
+<section class="section-bg py-20">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+
+            <span class="primary-text uppercase tracking-[0.3em] text-xs">
+
+                A coleção
+
+            </span>
+
+            <h2 class="font-elegant text-4xl md:text-5xl mt-5">
+
+                Uma fragrância para
+                <span class="accent-text">cada personalidade.</span>
+
+            </h2>
+
+            <p class="text-gray-400 mt-6 leading-relaxed">
+
+                A linha Lattitude Hinode traz diferentes fragrâncias
+                com propostas e estilos próprios.
+                Encontre aquela que combina com você.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="glass p-8 rounded-2xl">
+
+                <div class="text-3xl primary-text mb-5">✦</div>
+
+                <h3 class="text-xl font-bold mb-4">
+
+                    Personalidade
+
+                </h3>
+
+                <p class="text-gray-400 text-sm leading-relaxed">
+
+                    Fragrâncias que acompanham seu estilo
+                    e ajudam a expressar sua identidade.
+
+                </p>
+
+            </div>
+
+            <div class="glass p-8 rounded-2xl">
+
+                <div class="text-3xl accent-text mb-5">◈</div>
+
+                <h3 class="text-xl font-bold mb-4">
+
+                    Sofisticação
+
+                </h3>
+
+                <p class="text-gray-400 text-sm leading-relaxed">
+
+                    Perfumes que valorizam sua rotina
+                    e tornam os momentos especiais.
+
+                </p>
+
+            </div>
+
+            <div class="glass p-8 rounded-2xl">
+
+                <div class="text-3xl primary-text mb-5">❖</div>
+
+                <h3 class="text-xl font-bold mb-4">
+
+                    Versatilidade
+
+                </h3>
+
+                <p class="text-gray-400 text-sm leading-relaxed">
+
+                    Diferentes fragrâncias para diferentes
+                    gostos e ocasiões.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section id="perfumes" class="hero py-20">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+
+            <span class="primary-text uppercase tracking-[0.3em] text-xs">
+
+                Conheça os perfumes
+
+            </span>
+
+            <h2 class="font-elegant text-4xl md:text-6xl mt-5">
+
+                Coleção
+                <span class="primary-text">Lattitude</span>
+
+            </h2>
+
+            <p class="text-gray-400 mt-4">
+
+                Conheça diferentes fragrâncias da coleção Hinode.
+
+            </p>
+
+        </div>
+
+        <!-- IMAGEM DA COLEÇÃO -->
+
+        <div class="mb-12">
+
+            <img
+                src="perfumes.jfif"
+                alt="Coleção Lattitude Hinode"
+                class="w-full rounded-2xl shadow-2xl">
+
+        </div>
+
+        <!-- PERFUMES -->
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="glass rounded-2xl overflow-hidden">
+
+                <img
+                    src="stamina.jfif"
+                    alt="Lattitude Stamina"
+                    class="w-full h-64 object-cover object-left product-image">
+
+                <div class="p-6">
+
+                    <span class="primary-text text-xs uppercase tracking-widest">
+
+                        Preto e vermelho
+
+                    </span>
+
+                    <h3 class="font-elegant text-2xl mt-2">
+
+                        Stamina
+
+                    </h3>
+
+                    <p class="primary-text text-2xl font-extrabold mt-3">R$ 169,90</p>
+
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+
+                        Uma fragrância com proposta marcante,
+                        inspirada em vigor e atitude.
+
+                    </p>
+
+                    <a
+                        href="https://www.instagram.com/lattitudestamina.perfume/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="primary-button block text-center mt-5 py-3 rounded-full font-bold text-sm">
+
+                        SAIBA MAIS
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="glass rounded-2xl overflow-hidden">
+
+                <img
+                    src="perfumes.jfif"
+                    alt="Lattitude Origini"
+                    class="w-full h-64 object-cover object-center product-image">
+
+                <div class="p-6">
+
+                    <span class="text-green-400 text-xs uppercase tracking-widest">
+
+                        Azul e verde
+
+                    </span>
+
+                    <h3 class="font-elegant text-2xl mt-2">
+
+                        Origini
+
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+
+                        Uma opção para quem busca
+                        uma fragrância com identidade.
+
+                    </p>
+
+                    <a
+                        href="https://www.instagram.com/lattitudestamina.perfume/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="primary-button block text-center mt-5 py-3 rounded-full font-bold text-sm">
+
+                        SAIBA MAIS
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="glass rounded-2xl overflow-hidden">
+
+                <img
+                    src="perfumes.jfif"
+                    alt="Lattitude Expedition"
+                    class="w-full h-64 object-cover object-center product-image">
+
+                <div class="p-6">
+
+                    <span class="text-blue-400 text-xs uppercase tracking-widest">
+
+                        Prata e azul
+
+                    </span>
+
+                    <h3 class="font-elegant text-2xl mt-2">
+
+                        Expedition
+
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+
+                        Uma fragrância que remete
+                        a novas experiências e descobertas.
+
+                    </p>
+
+                    <a
+                        href="https://www.instagram.com/lattitudestamina.perfume/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="primary-button block text-center mt-5 py-3 rounded-full font-bold text-sm">
+
+                        SAIBA MAIS
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="glass rounded-2xl overflow-hidden">
+
+                <img
+                    src="perfumes.jfif"
+                    alt="Lattitude Race"
+                    class="w-full h-64 object-cover object-center product-image">
+
+                <div class="p-6">
+
+                    <span class="text-red-400 text-xs uppercase tracking-widest">
+
+                        Vermelho
+
+                    </span>
+
+                    <h3 class="font-elegant text-2xl mt-2">
+
+                        Race
+
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+
+                        Para quem gosta de transmitir
+                        energia e personalidade.
+
+                    </p>
+
+                    <a
+                        href="https://www.instagram.com/lattitudestamina.perfume/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="primary-button block text-center mt-5 py-3 rounded-full font-bold text-sm">
+
+                        SAIBA MAIS
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INSTAGRAM -->
+
+<section class="section-bg py-20">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="glass rounded-3xl p-8 md:p-14 text-center">
+
+            <div class="text-5xl mb-6">
+
+                📸
+
+            </div>
+
+            <span class="primary-text uppercase tracking-[0.3em] text-xs">
+
+                Acompanhe nossas novidades
+
+            </span>
+
+            <h2 class="font-elegant text-4xl md:text-5xl mt-5 mb-6">
+
+                Siga a gente no
+                <span class="primary-text">Instagram.</span>
+
+            </h2>
+
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+
+                Conheça os perfumes, acompanhe novidades da coleção
+                Lattitude e descubra sua próxima fragrância favorita.
+
+            </p>
+
+            <a
+                href="https://www.instagram.com/lattitudestamina.perfume/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="instagram-button inline-block px-10 py-5 rounded-full font-bold">
+
+                @LATTITUDESTAMINA.PERFUME ↗
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="border-t border-white/10 bg-black py-8">
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+        <div class="text-2xl font-extrabold tracking-[0.2em] primary-text mb-4">
+
+            LATTITUDE
+
+        </div>
+
+        <a
+            href="https://www.instagram.com/lattitudestamina.perfume/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition text-sm">
+
+            Instagram: @lattitudestamina.perfume
+
+        </a>
+
+        <p class="text-gray-600 text-xs mt-5">
+
+            © 2026 · Todos os direitos reservados.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- BOTÃO FLUTUANTE INSTAGRAM -->
+
+<a
+    href="https://www.instagram.com/lattitudestamina.perfume/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Acessar Instagram Lattitude Stamina"
+    class="instagram-button fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl z-50">
+
+    ◎
+
+</a>
+
+<!-- ALTERAR VERSÃO -->
+
+<script>
+
+function changeTheme(theme) {
+
+    document.body.classList.remove(
+        "theme-red",
+        "theme-gold",
+        "theme-blue"
+    );
+
+    document.body.classList.add("theme-" + theme);
+
+    document.querySelectorAll(".theme-selector").forEach(button => {
+        button.classList.remove("active");
+    });
+
+    document.getElementById("btn-" + theme).classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
